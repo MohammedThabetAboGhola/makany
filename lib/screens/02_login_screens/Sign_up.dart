@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:makany/models/requests.dart';
 
 import '../../generated/assets.dart';
+import '../../models/user.dart';
 import '../../utils/00_style/00_app_color.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -13,10 +15,14 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  TextEditingController nameController = TextEditingController();
-  late String selectedValue = "";
+  TextEditingController phoneController = TextEditingController();
+
+
+
+  late String selectedValue ="";
 
 
   @override
@@ -157,7 +163,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
                           TextField(
                             keyboardType: TextInputType.phone,
-
+                            controller: phoneController,
                             decoration: InputDecoration(
                               prefixIcon: const Icon(Icons.phone,color: Colors.grey),
                               hintText: "رقم الهاتف",
@@ -222,7 +228,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 child: Text('نوع صاحب العقار'),
                               ),
                               RadioListTile(
-                                title: Text('مكتب عقاري'),
+                                title: const Text('مكتب عقاري'),
                                 value: 'Option 1',
                                 groupValue: selectedValue,
                                 onChanged: (value) {
@@ -232,7 +238,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 },
                               ),
                               RadioListTile(
-                                title: Text('مؤجر'),
+                                title: const Text('مؤجر'),
                                 value: 'Option 2',
                                 groupValue: selectedValue,
                                 onChanged: (value) {
@@ -251,7 +257,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             child: ElevatedButton(
                               onPressed: (){
 
-                                // singUp();
+                                signUp();
                               },
                               style: ElevatedButton.styleFrom(
                                 primary: AppColor.primary,
@@ -314,4 +320,25 @@ class _SignUpScreenState extends State<SignUpScreen> {
       ),);
   }
 
+  signUp (){
+    String name = nameController.text;
+    String email = emailController.text;
+    String password = passwordController.text;
+    String phone = phoneController.text;
+
+    User user = User (name ,email ,phone,password,selectedValue);
+
+    List<User> users = [];
+    users.add(user);
+
+    if(selectedValue.isEmpty){
+
+    }
+    else if (selectedValue == "Option 1"){
+      Navigator.pushNamed(context, "/real_estate_screen");
+    }
+    else if (selectedValue == "Option 2"){
+      Navigator.pushReplacementNamed(context, '/layout_screen');
+    }
+  }
 }
