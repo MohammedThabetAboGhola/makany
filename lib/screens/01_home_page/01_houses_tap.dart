@@ -15,7 +15,9 @@ class HousesTap extends StatelessWidget {
             onTap: () {
               Navigator.pushNamed(context, "/details_screen");
             },
-            child: const HomeFirstTap());
+            child: const HomeFirstTap(),
+
+        );
       },
       itemCount: 10,
     );

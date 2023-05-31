@@ -16,7 +16,7 @@ class HomeFirstTap extends StatelessWidget {
             width: double.maxFinite,
             decoration: BoxDecoration(
               image: const DecorationImage(
-                image: AssetImage(Assets.pixelHouse1),
+                image: AssetImage(Assets.pixelHouse2),
                 fit: BoxFit.cover,
               ),
               borderRadius: BorderRadius.only(
