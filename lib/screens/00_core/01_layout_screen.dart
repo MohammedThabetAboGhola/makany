@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:makany/screens/01_home_page/booking.dart';
 import 'package:provider/provider.dart';
 
 import '../../generated/assets.dart';
@@ -7,6 +8,7 @@ import '../../provider/01_layout_provider.dart';
 import '../../utils/00_style/00_app_color.dart';
 import '../../widget/00_main_app_button.dart';
 import '../01_home_page/00_home_screen.dart';
+import '../01_home_page/Profile.dart';
 
 class LayoutScreen extends StatelessWidget {
   const LayoutScreen({Key? key}) : super(key: key);
@@ -68,8 +70,8 @@ class LayoutScreen extends StatelessWidget {
             children: [
               const HomeScreen(),
               const NoticesScreen(),
-              Container(),
-              Container(),
+             const Booking(),
+              Profile(),
             ],
           );
         },

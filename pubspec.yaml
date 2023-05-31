@@ -42,6 +42,7 @@ dependencies:
   flutter_screenutil: ^5.0.1
   url_launcher: ^6.1.11
   path_provider: ^2.0.15
+  lottie: ^2.3.2
   intl: any
   flutter_localizations:
     sdk: flutter

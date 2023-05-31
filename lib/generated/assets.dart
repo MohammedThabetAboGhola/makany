@@ -6,6 +6,9 @@ class Assets {
   static const String pixelHouse2 = 'assets/images/pixel/house_2.jpg';
   static const String pixelHouse3 = 'assets/images/pixel/house_3.jpg';
   static const String pixelHouse4 = 'assets/images/pixel/house_4.jpg';
+  static const String like = 'assets/images/victor/94181-like.json';
+  static const String Person = 'assets/images/pixel/Placeholder_Person.jpg';
+
 
   static const String pixelFacebook = 'assets/images/pixel/facebook.png';
   static const String pixelGoogle = 'assets/images/pixel/google.png';
