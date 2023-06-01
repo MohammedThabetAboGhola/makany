@@ -257,7 +257,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             child: ElevatedButton(
                               onPressed: (){
 
-                                signUp();
+                                performLogin();
                               },
                               style: ElevatedButton.styleFrom(
                                 primary: AppColor.primary,
@@ -320,25 +320,67 @@ class _SignUpScreenState extends State<SignUpScreen> {
       ),);
   }
 
-  signUp (){
-    String name = nameController.text;
-    String email = emailController.text;
-    String password = passwordController.text;
-    String phone = phoneController.text;
 
-    User user = User (name ,email ,phone,password,selectedValue);
-
-    List<User> users = [];
-    users.add(user);
-
-    if(selectedValue.isEmpty){
-
+   performLogin()  {
+    if (checkData()) {
+       register();
     }
-    else if (selectedValue == "Option 1"){
-      Navigator.pushNamed(context, "/real_estate_screen");
+
+  }
+
+   checkData() {
+    if(nameController.text.isNotEmpty&& emailController.text.isNotEmpty
+       && phoneController.text.isNotEmpty && passwordController.text.isNotEmpty){
+      return true;
     }
-    else if (selectedValue == "Option 2"){
-      Navigator.pushReplacementNamed(context, '/layout_screen');
+    showMessage('ادخل البيانات بشكل صحيح', error: true);
+    return false;
+    }
+
+   register()  {
+
+     String name = nameController.text;
+     String email = emailController.text;
+     String password = passwordController.text;
+     String phone = phoneController.text;
+
+     User user = User (name ,email ,phone,password,selectedValue);
+
+     List<User> users = [];
+     users.add(user);
+
+
+
+    if (user != null) {
+
+      if (selectedValue == "Option 1"){
+        Navigator.pushNamed(context, "/real_estate_screen");
+      }
+      else if (selectedValue == "Option 2"){
+        Navigator.pushReplacementNamed(context, '/layout_screen');
+      }
+
+      else if (selectedValue.isEmpty){
+        showMessage('الرجاء اختيار نوع الحساب', error: true);
+      }
+      showMessage('تم التسجيل', error: false);
+    } else {
+      showMessage('خطء في التسجيل', error: true);
     }
   }
+
+  void showMessage(String message, {bool error = false}) {
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(
+        message,
+        style: const TextStyle(
+          color: Colors.white,
+        ),
+      ),
+      backgroundColor: error ? Colors.red : Colors.green,
+      margin: const EdgeInsets.all(10),
+      behavior: SnackBarBehavior.floating,
+    ));
+  }
+
 }
