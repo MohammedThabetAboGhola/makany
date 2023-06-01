@@ -14,7 +14,7 @@ class Assets {
   static const String pixelGoogle = 'assets/images/pixel/google.png';
 
   static const String pixelHouse5 = 'assets/images/pixel/house_5.jpg';
-  static const String victorAddIcon = 'assets/images/victor/add_icon.svg';
+  static const String victorAddIcon = 'assets/images/victor/add.svg';
   static const String victorAppLunchScreenImage = 'assets/images/victor/app_lunch_screen_image.svg';
 
   static const String victorAppLunchScreenImage1 = 'assets/images/victor/app_lunch_screen_image1.svg';
@@ -26,14 +26,14 @@ class Assets {
   static const String victorIconIonicMdHome = 'assets/images/victor/Icon_ionic_md_home.svg';
   static const String victorIconMaterialAddAlert = 'assets/images/victor/Icon_material_add_alert.svg';
   static const String victorIconMaterialAddAlertSs = 'assets/images/victor/Icon_material_add_alert_ss.svg';
-  static const String victorIconMaterialMessage = 'assets/images/victor/Icon_material_message.svg';
+  static const String victorIconMaterialMessage = 'assets/images/victor/massageblack.svg';
   static const String victorIconMaterialPerson = 'assets/images/victor/Icon_material_person.svg';
   static const String victorIconMaterialPersonOutline = 'assets/images/victor/Icon_material_person_outline.svg';
   static const String victorIconPaymentInvoiceSign = 'assets/images/victor/Icon_payment_invoice_sign.svg';
   static const String victorIconPaymentInvoiceSignO = 'assets/images/victor/Icon_payment_invoice_sign_o.svg';
-  static const String victorIconSimpleAddthis = 'assets/images/victor/Icon_simple_addthis.svg';
+  static const String victorIconSimpleAddthis = 'assets/images/victor/addblack.svg';
   static const String victorMenuIcon = 'assets/images/victor/menu_icon.svg';
-  static const String victorMessageIconForButtomNavigationBar = 'assets/images/victor/message_icon_for_buttom_navigation_bar.svg';
+  static const String victorMessageIconForButtomNavigationBar = 'assets/images/victor/massage.svg';
   static const String victorMinimamIcon = 'assets/images/victor/minimam_icon.svg';
   static const String victorNumberTebesIcon = 'assets/images/victor/number_tebes_icon.svg';
   static const String victorRoomIcon = 'assets/images/victor/room_icon.svg';

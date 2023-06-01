@@ -43,6 +43,7 @@ dependencies:
   url_launcher: ^6.1.11
   path_provider: ^2.0.15
   lottie: ^2.3.2
+  flutter_chat_ui: ^1.6.8
   intl: any
   flutter_localizations:
     sdk: flutter
