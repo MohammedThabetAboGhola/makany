@@ -39,12 +39,14 @@ class RealEstateLayout extends StatelessWidget {
               ),
               NavigationBarItem(
                 svgAssetSelect: Assets.victorIconMaterialMessage,
-                svgAssetNotSelect: Assets.victorMessageIconForButtomNavigationBar,
+                svgAssetNotSelect:
+                    Assets.victorMessageIconForButtomNavigationBar,
                 label: S.of(context).Messages,
               ),
             ],
             onTabTapped: (int index) {
-              MyRealEstateProvider myRealState = Provider.of(context, listen: false);
+              MyRealEstateProvider myRealState =
+                  Provider.of(context, listen: false);
               myRealState.changePageIndex(index: index).then((value) {
                 myRealState.myRealEstateController.jumpToPage(index);
               });
@@ -57,7 +59,8 @@ class RealEstateLayout extends StatelessWidget {
           return PageView(
             controller: provider.myRealEstateController,
             onPageChanged: (value) {
-              MyRealEstateProvider myRealState = Provider.of<MyRealEstateProvider>(context, listen: false);
+              MyRealEstateProvider myRealState =
+                  Provider.of<MyRealEstateProvider>(context, listen: false);
               myRealState.changePageIndex(index: value);
             },
             children: [
@@ -66,40 +69,66 @@ class RealEstateLayout extends StatelessWidget {
                 child: CancelableVerticalStepper(
                   steps: [
                     Step(
-                      title: Text(
-                        S.of(context).Choose_the_type_of_property,
-                        style: TextStyle(fontSize: 15.sp),
-                      ),
-                      content: CustomDropDounMenu()
-                    ),
+                        title: Text(
+                          S.of(context).Choose_the_type_of_property,
+                          style: TextStyle(fontSize: 15.sp),
+                        ),
+                        content: CustomDropDounMenu()),
                     Step(
                       title: Text(
                         S.of(context).Location,
                         style: TextStyle(fontSize: 15.sp),
                       ),
-                      content: Text('This is the content of step 2'),
+                      content: TextFormField(
+                        controller: Locations,
+                      ),
                     ),
                     Step(
                       title: Text(
                         S.of(context).Additional_details,
                         style: TextStyle(fontSize: 15.sp),
                       ),
-                      content: Text('This is the content of step 3'),
+                      content: TextFormField(
+                        controller: Additional_detail,
+                        onTap: () {
+                          print(Locations);
+                        },
+                      ),
                     ),
                     Step(
                       title: Text(
                         S.of(context).Price_and_duration_of_leave,
                         style: TextStyle(fontSize: 15.sp),
                       ),
-                      content: Text('This is the content of step 3'),
+                      content: TextFormField(
+                        controller: Price_and_duration_of_leaves,
+                      ),
                     ),
                     Step(
-                      title: Text(
-                        S.of(context).Increase_hours,
-                        style: TextStyle(fontSize: 15.sp),
-                      ),
-                      content: Text('This is the content of step 3'),
-                    ),
+                        title: Text(
+                          S.of(context).Increase_hours,
+                          style: TextStyle(fontSize: 15.sp),
+                        ),
+                        content: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "${time.hour}:${time.minute}",
+                                style: TextStyle(fontSize: 25),
+                              ),
+                              ElevatedButton(
+                                child: Text("select Time"),
+                                onPressed: () async {
+                                  TimeOfDay? newTime = await showTimePicker(
+                                      context: context, initialTime: time);
+                                  if (newTime == null) return;
+                                    time = newTime;
+                                }
+                              )
+                            ],
+                          ),
+                        )),
                     Step(
                       title: Text(
                         S.of(context).Upload_photo,
@@ -130,8 +159,14 @@ class CustomDropDounMenu extends StatefulWidget {
   _CustomDropDounMenuState createState() => _CustomDropDounMenuState();
 }
 
+final Locations = TextEditingController();
+final Additional_detail = TextEditingController();
+final Price_and_duration_of_leaves = TextEditingController();
+TimeOfDay time = TimeOfDay(hour: 9, minute: 30);
+
 class _CustomDropDounMenuState extends State<CustomDropDounMenu> {
   int? _selectedValue;
+  List<String> items = ["منزل", "شقة", "متجر"];
 
   @override
   Widget build(BuildContext context) {
@@ -149,10 +184,10 @@ class _CustomDropDounMenuState extends State<CustomDropDounMenu> {
           });
         },
         items: List.generate(
-          10,
-              (index) => DropdownMenuItem<int>(
+          3,
+          (index) => DropdownMenuItem<int>(
             value: index,
-            child: Text('Item ${index}'),
+            child: Text(items[index]),
           ),
         ),
       ),
