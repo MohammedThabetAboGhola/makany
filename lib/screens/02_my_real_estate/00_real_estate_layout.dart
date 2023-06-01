@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:makany/screens/02_my_real_estate/Chat.dart';
 import 'package:provider/provider.dart';
 
 import '../../generated/assets.dart';
@@ -115,7 +116,7 @@ class RealEstateLayout extends StatelessWidget {
                   },
                 ),
               ),
-              Container(),
+              ChatPage(),
             ],
           );
         },
