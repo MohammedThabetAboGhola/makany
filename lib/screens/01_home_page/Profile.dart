@@ -18,7 +18,7 @@ class _ProfileState extends State<Profile> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Profile",
+          "الملف الشخصي ",
           style: TextStyle(color: Colors.white),
         ),
         toolbarHeight: 56.h,
@@ -43,7 +43,7 @@ class _ProfileState extends State<Profile> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 180, top: 70),
+            padding: const EdgeInsets.only(right: 150, top: 70),
             child: Text(
               'Ahmed',
               style: TextStyle(
@@ -56,11 +56,11 @@ class _ProfileState extends State<Profile> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 150, top: 65),
+            padding: const EdgeInsets.only(right: 340, top: 65),
             child: Icon(Icons.person_rounded),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 80, top: 100),
+            padding: const EdgeInsets.only(right: 150, top: 100),
             child: Text(
               'ahmed@gmail.com',
               style: TextStyle(
@@ -73,11 +73,11 @@ class _ProfileState extends State<Profile> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 50, top: 93),
+            padding: const EdgeInsets.only(right: 340, top: 100),
             child: Icon(Icons.email),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 130, top: 130),
+            padding: const EdgeInsets.only(right: 150, top: 130),
             child: Text(
               '0598455550',
               style: TextStyle(
@@ -90,7 +90,7 @@ class _ProfileState extends State<Profile> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 100, top: 124),
+            padding: const EdgeInsets.only(right: 340, top: 130),
             child: Icon(Icons.phone),
           ),
           Padding(
@@ -108,7 +108,7 @@ class _ProfileState extends State<Profile> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 220, left: 240),
+            padding: const EdgeInsets.only(top: 220, right: 50),
             child: Text(
               'آخر المشاهدات',
               style: TextStyle(
@@ -124,7 +124,7 @@ class _ProfileState extends State<Profile> {
             child: Icon(Icons.restart_alt),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 260, top: 380),
+            padding: const EdgeInsets.only(right: 50, top: 380),
             child: Text(
               'المساعدة',
               style: TextStyle(
@@ -137,7 +137,7 @@ class _ProfileState extends State<Profile> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 270, top: 300),
+            padding: const EdgeInsets.only(right: 50, top: 300),
             child: Text(
               'الرسائل',
               style: TextStyle(
@@ -150,7 +150,7 @@ class _ProfileState extends State<Profile> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 360, top: 300),
+            padding: const EdgeInsets.only(right: 10, top: 300),
             child: Icon(Icons.chat_outlined),
           ),
           Padding(
@@ -158,7 +158,7 @@ class _ProfileState extends State<Profile> {
             child: Center(child: Icon(Icons.info_outline)),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 260, top: 340),
+            padding: const EdgeInsets.only(right: 50, top: 340),
             child: Text(
               'الاعدادات',
               style: TextStyle(
@@ -170,7 +170,7 @@ class _ProfileState extends State<Profile> {
               softWrap: false,
             ),
           ),          Padding(
-            padding: const EdgeInsets.only(left: 360, top: 340),
+            padding: const EdgeInsets.only(right: 10, top: 340),
             child: Icon(Icons.settings),
           ),
           Padding(
@@ -188,7 +188,7 @@ class _ProfileState extends State<Profile> {
                   softWrap: false,
                 ),
                 onTap: () {
-                  Navigator.pushNamed(context, "");
+                  Navigator.pushNamed(context, "/lunch_screen");
                 },
               ),
             ),

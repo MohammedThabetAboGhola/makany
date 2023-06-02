@@ -56,7 +56,7 @@ class MyApp extends StatelessWidget {
               ],
               supportedLocales: S.delegate.supportedLocales,
               // locale: Locale(Provider.of<LanguageProvider>(context).language),
-              locale: const Locale('en'),
+              locale: const Locale('ar'),
               initialRoute: "/lunch_screen",
               routes: {
                 "/lunch_screen": (context) => const LunchScreen(),

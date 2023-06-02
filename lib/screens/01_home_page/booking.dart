@@ -35,7 +35,7 @@ class _BookingState extends State<Booking> with TickerProviderStateMixin {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Booking",
+          "الحجوزات",
           style: TextStyle(color: Colors.white),
         ),
         toolbarHeight: 56.h,
@@ -92,14 +92,14 @@ class _BookingState extends State<Booking> with TickerProviderStateMixin {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 50, top: 50),
+                    padding: const EdgeInsets.only(right: 150, top: 50),
                     child: Text(
                       "اسم الشقة : عمارة ليد طابق ثالث",
                       style: TextStyle(fontSize: 13),
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 140, top: 90),
+                    padding: const EdgeInsets.only(right: 150, top: 90),
                     child: Text(
                       "المساحة: 300متر",
                       style: TextStyle(fontSize: 13),
@@ -161,14 +161,14 @@ class _BookingState extends State<Booking> with TickerProviderStateMixin {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 50, top: 50),
+                    padding: const EdgeInsets.only(right: 150, top: 50),
                     child: Text(
                       "اسم الشقة : روق عصري شارع نصر",
                       style: TextStyle(fontSize: 13),
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 140, top: 90),
+                    padding: const EdgeInsets.only(right: 150, top: 90),
                     child: Text(
                       "المساحة: 120متر",
                       style: TextStyle(fontSize: 13),
