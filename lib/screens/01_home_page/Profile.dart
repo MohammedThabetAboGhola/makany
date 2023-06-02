@@ -16,7 +16,7 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-  Users? users ;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -225,6 +225,7 @@ class _ProfileState extends State<Profile> {
       )
     );
   }
+
 
 
 }

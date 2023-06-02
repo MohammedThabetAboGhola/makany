@@ -1,3 +1,4 @@
 class RealEstate {
 
+  String? typeOfProperty;
 }

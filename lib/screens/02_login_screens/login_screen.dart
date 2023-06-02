@@ -1,13 +1,16 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:makany/store/shardpreferances.dart';
 import 'package:makany/utils/00_style/00_app_color.dart';
 
 import '../../firebase/FBAHelper.dart';
 import '../../generated/assets.dart';
 import '../../models/user.dart';
 import '../00_core/01_layout_screen.dart';
+import '../02_my_real_estate/00_real_estate_layout.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -21,7 +24,15 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
+  String? accountType;
 
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getData();
+  }
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -344,12 +355,28 @@ class _LoginScreenState extends State<LoginScreen> {
 
 
     if (userCredential?.user?.uid != null) {
-      Navigator.push(context, MaterialPageRoute(builder: (_) {
-        return LayoutScreen();
-      }));
-    } else {
+        if(SharedPrefController_1().accountType == "مكتب"){
+          Navigator.push(context, MaterialPageRoute(builder: (_) {
+            return RealEstateLayout();
+          }));
+        }else{
+          Navigator.push(context, MaterialPageRoute(builder: (_) {
+            return LayoutScreen();
+          }));
+        }
+
+
+      }
+
+     else {
       print("else");
       print(userCredential?.user?.uid);
     }
   }
+
+  getData () async {
+
+  }
+
+
 }

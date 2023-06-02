@@ -2,11 +2,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:makany/prefs/shared_pref_controller.dart';
+import 'package:makany/store/shardpreferances.dart';
 import '../../firebase/FBAHelper.dart';
 import '../../generated/assets.dart';
 import '../../models/user.dart';
 import '../../utils/00_style/00_app_color.dart';
 import '../00_core/01_layout_screen.dart';
+import '../02_my_real_estate/00_real_estate_layout.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -399,11 +402,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
           name: nameController.text,phone: phoneController.text,accountType: selectedValue
       ),context);
 
+      SharedPrefController_1().saveAccountType(accountType: selectedValue);
+
       String? uidUser = userCredential?.user?.uid;
 
-      Navigator.push(context, MaterialPageRoute(builder: (_) {
-        return LayoutScreen();
-      }));
+
+      if(selectedValue == "مكتب"){
+        Navigator.push(context, MaterialPageRoute(builder: (_) {
+          return RealEstateLayout();
+        }));
+      }else{
+        Navigator.push(context, MaterialPageRoute(builder: (_) {
+          return LayoutScreen();
+        }));
+      }
 
     }
   }
