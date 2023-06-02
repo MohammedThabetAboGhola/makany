@@ -13,6 +13,7 @@ import 'package:makany/screens/02_login_screens/Sign_up.dart';
 import 'package:makany/screens/02_login_screens/forget_password.dart';
 import 'package:makany/screens/02_login_screens/login_screen.dart';
 import 'package:makany/screens/02_my_real_estate/00_real_estate_layout.dart';
+import 'package:makany/store/shardpreferances.dart';
 import 'package:makany/utils/00_style/00_app_color.dart';
 import 'package:provider/provider.dart';
 import 'generated/l10n.dart';
@@ -24,6 +25,8 @@ void main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
   Firebase.initializeApp();
+
+  await SharedPrefController_1().initSharedPreferences();
 }
 
 class MyApp extends StatelessWidget {
