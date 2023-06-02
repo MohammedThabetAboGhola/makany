@@ -1,11 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:makany/models/requests.dart';
-
+import '../../firebase/FBAHelper.dart';
 import '../../generated/assets.dart';
 import '../../models/user.dart';
 import '../../utils/00_style/00_app_color.dart';
+import '../00_core/01_layout_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -229,7 +230,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               ),
                               RadioListTile(
                                 title: const Text('مكتب عقاري'),
-                                value: 'Option 1',
+                                value: 'مكتب',
                                 groupValue: selectedValue,
                                 onChanged: (value) {
                                   setState(() {
@@ -239,7 +240,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               ),
                               RadioListTile(
                                 title: const Text('مؤجر'),
-                                value: 'Option 2',
+                                value: 'مستاجر',
                                 groupValue: selectedValue,
                                 onChanged: (value) {
                                   setState(() {
@@ -257,7 +258,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             child: ElevatedButton(
                               onPressed: (){
 
-                                performLogin();
+                                // performLogin();
+                                singUp();
                               },
                               style: ElevatedButton.styleFrom(
                                 primary: AppColor.primary,
@@ -323,7 +325,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
    performLogin()  {
     if (checkData()) {
-       register();
+       // register();
     }
 
   }
@@ -337,37 +339,37 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return false;
     }
 
-   register()  {
-
-     String name = nameController.text;
-     String email = emailController.text;
-     String password = passwordController.text;
-     String phone = phoneController.text;
-
-     User user = User (name ,email ,phone,password,selectedValue);
-
-     List<User> users = [];
-     users.add(user);
-
-
-
-    if (user != null) {
-
-      if (selectedValue == "Option 1"){
-        Navigator.pushNamed(context, "/real_estate_screen");
-      }
-      else if (selectedValue == "Option 2"){
-        Navigator.pushReplacementNamed(context, '/layout_screen');
-      }
-
-      else if (selectedValue.isEmpty){
-        showMessage('الرجاء اختيار نوع الحساب', error: true);
-      }
-      showMessage('تم التسجيل', error: false);
-    } else {
-      showMessage('خطء في التسجيل', error: true);
-    }
-  }
+  //  register()  {
+  //
+  //    String name = nameController.text;
+  //    String email = emailController.text;
+  //    String password = passwordController.text;
+  //    String phone = phoneController.text;
+  //
+  //     Users user = Users (,name ,email ,phone,password,selectedValue);
+  //
+  //    List<Users> users = [];
+  //    users.add(user);
+  //
+  //
+  //
+  //   if (user != null) {
+  //
+  //     if (selectedValue == "Option 1"){
+  //       Navigator.pushNamed(context, "/real_estate_screen");
+  //     }
+  //     else if (selectedValue == "Option 2"){
+  //       Navigator.pushReplacementNamed(context, '/layout_screen');
+  //     }
+  //
+  //     else if (selectedValue.isEmpty){
+  //       showMessage('الرجاء اختيار نوع الحساب', error: true);
+  //     }
+  //     showMessage('تم التسجيل', error: false);
+  //   } else {
+  //     showMessage('خطء في التسجيل', error: true);
+  //   }
+  // }
 
   void showMessage(String message, {bool error = false}) {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -381,6 +383,29 @@ class _SignUpScreenState extends State<SignUpScreen> {
       margin: const EdgeInsets.all(10),
       behavior: SnackBarBehavior.floating,
     ));
+  }
+
+
+  Future singUp () async{
+
+    if(emailController.text.isNotEmpty &&
+        nameController.text.isNotEmpty &&
+        passwordController.text.isNotEmpty&& phoneController.text.isNotEmpty){
+
+
+      UserCredential? userCredential = await FirebaseAuthHelper.firebaseAuthHelper.createAccount(Users(
+          email: emailController.text,
+          password: passwordController.text,
+          name: nameController.text,phone: phoneController.text,accountType: selectedValue
+      ),context);
+
+      String? uidUser = userCredential?.user?.uid;
+
+      Navigator.push(context, MaterialPageRoute(builder: (_) {
+        return LayoutScreen();
+      }));
+
+    }
   }
 
 }

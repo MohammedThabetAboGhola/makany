@@ -1,9 +1,13 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:makany/utils/00_style/00_app_color.dart';
 
+import '../../firebase/FBAHelper.dart';
 import '../../generated/assets.dart';
+import '../../models/user.dart';
+import '../00_core/01_layout_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -155,8 +159,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             height: 60,
                             child: ElevatedButton(
                               onPressed: (){
-                                Navigator.pushReplacementNamed(context, '/layout_screen');
-                                // login();
+                                // Navigator.pushReplacementNamed(context, '/layout_screen');
+                                login();
 
                               },
                               style: ElevatedButton.styleFrom(
@@ -274,5 +278,78 @@ class _LoginScreenState extends State<LoginScreen> {
       ),);
   }
 
+  performLogin()  {
+    if (checkData()) {
+      register();
+    }
 
+  }
+
+  checkData() {
+    if(emailController.text.isNotEmpty && passwordController.text.isNotEmpty){
+      return true;
+    }
+    showMessage('ادخل البيانات بشكل صحيح', error: true);
+    return false;
+  }
+
+  register()  {
+    String email = emailController.text;
+    String password = passwordController.text;
+
+
+    // User user = User (name ,email ,phone,password,selectedValue);
+    //
+    // List<User> users = [];
+    // users.add(user);
+
+
+
+    // if ( emailController.text== "ata@gmail.com") {
+    //
+    //   if (selectedValue == "Option 1"){
+    //     Navigator.pushNamed(context, "/real_estate_screen");
+    //   }
+    //   else if (selectedValue == "Option 2"){
+    //     Navigator.pushReplacementNamed(context, '/layout_screen');
+    //   }
+    //
+    //   else if (selectedValue.isEmpty){
+    //     showMessage('الرجاء اختيار نوع الحساب', error: true);
+    //   }
+    //   showMessage('تم التسجيل', error: false);
+    // } else {
+    //   showMessage('خطء في التسجيل', error: true);
+    // }
+  }
+
+  void showMessage(String message, {bool error = false}) {
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(
+        message,
+        style: const TextStyle(
+          color: Colors.white,
+        ),
+      ),
+      backgroundColor: error ? Colors.red : Colors.green,
+      margin: const EdgeInsets.all(10),
+      behavior: SnackBarBehavior.floating,
+    ));
+  }
+
+  Future login () async{
+    UserCredential? userCredential = await FirebaseAuthHelper.firebaseAuthHelper.signIn(users: Users(
+        email: emailController.text, password: passwordController.text,
+    ), context: context);
+
+
+    if (userCredential?.user?.uid != null) {
+      Navigator.push(context, MaterialPageRoute(builder: (_) {
+        return LayoutScreen();
+      }));
+    } else {
+      print("else");
+      print(userCredential?.user?.uid);
+    }
+  }
 }

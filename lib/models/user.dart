@@ -1,21 +1,13 @@
 
 
-class User {
-   String _name ;
-   String _email ;
-   String _phone ;
-   String _password;
-   String _accountType;
+class Users {
+   String? id;
+   String? name ;
+   String? email ;
+   String? phone ;
+   String? password;
+   String? accountType;
 
-   User(this._name, this._email, this._phone, this._password, this._accountType);
-
-   String get accountType => _accountType;
-
-  String get password => _password;
-
-  String get phone => _phone;
-
-  String get email => _email;
-
-  String get name => _name;
+   Users({this.id, this.name, this.email, this.phone, this.password,
+      this.accountType});
 }

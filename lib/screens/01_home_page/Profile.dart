@@ -17,7 +17,7 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Profile",
           style: TextStyle(color: Colors.white),
         ),
@@ -33,156 +33,157 @@ class _ProfileState extends State<Profile> {
               height: 135,
               width: 135,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(Assets.Person),
+                image: const DecorationImage(
+                  image: AssetImage(Assets.Person),
                   fit: BoxFit.cover,
                 ),
-                borderRadius: BorderRadius.all(Radius.elliptical(100, 100.0)),
+                borderRadius: const BorderRadius.all(Radius.elliptical(100, 100.0)),
                 border: Border.all(width: 1.0, color: const Color(0xff707070)),
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 180, top: 70),
+          const Padding(
+            padding: EdgeInsets.only(left: 180, top: 70),
             child: Text(
               'Ahmed',
               style: TextStyle(
                 fontFamily: 'Tajawal',
                 fontSize: 18,
-                color: const Color(0xff000000),
+                color: Color(0xff000000),
                 fontWeight: FontWeight.w800,
               ),
               softWrap: false,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 150, top: 65),
+          const Padding(
+            padding: EdgeInsets.only(left: 150, top: 65),
             child: Icon(Icons.person_rounded),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 80, top: 100),
+          const Padding(
+            padding: EdgeInsets.only(left: 80, top: 100),
             child: Text(
               'ahmed@gmail.com',
               style: TextStyle(
                 fontFamily: 'Tajawal',
                 fontSize: 18,
-                color: const Color(0xff000000),
+                color: Color(0xff000000),
                 fontWeight: FontWeight.w800,
               ),
               softWrap: false,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 50, top: 93),
+          const Padding(
+            padding: EdgeInsets.only(left: 50, top: 93),
             child: Icon(Icons.email),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 130, top: 130),
+          const Padding(
+            padding: EdgeInsets.only(left: 130, top: 130),
             child: Text(
               '0598455550',
               style: TextStyle(
                 fontFamily: 'Tajawal',
                 fontSize: 18,
-                color: const Color(0xff000000),
+                color: Color(0xff000000),
                 fontWeight: FontWeight.w800,
               ),
               softWrap: false,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 100, top: 124),
+          const Padding(
+            padding: EdgeInsets.only(left: 100, top: 124),
             child: Icon(Icons.phone),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 200),
+          const Padding(
+            padding: EdgeInsets.only(top: 200),
             child: Divider(
               thickness: 2,
               color: Colors.grey,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 250),
+          const Padding(
+            padding: EdgeInsets.only(top: 250),
             child: Divider(
               thickness: 3,
               color: Colors.grey,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 220, left: 240),
+          const Padding(
+            padding: EdgeInsets.only(top: 220, left: 240),
             child: Text(
               'آخر المشاهدات',
               style: TextStyle(
                 fontFamily: 'Tajawal',
                 fontSize: 20,
-                color: const Color(0xff000000),
+                color: Color(0xff000000),
               ),
               softWrap: false,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 360, top: 224),
+          const Padding(
+            padding: EdgeInsets.only(left: 360, top: 224),
             child: Icon(Icons.restart_alt),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 260, top: 380),
+          const Padding(
+            padding: EdgeInsets.only(left: 260, top: 380),
             child: Text(
               'المساعدة',
               style: TextStyle(
                 fontFamily: 'Tajawal',
                 fontSize: 20,
-                color: const Color(0xff000000),
+                color: Color(0xff000000),
                 fontWeight: FontWeight.w500,
               ),
               softWrap: false,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 270, top: 300),
+          const Padding(
+            padding: EdgeInsets.only(left: 270, top: 300),
             child: Text(
               'الرسائل',
               style: TextStyle(
                 fontFamily: 'Tajawal',
                 fontSize: 20,
-                color: const Color(0xff000000),
+                color: Color(0xff000000),
                 fontWeight: FontWeight.w500,
               ),
               softWrap: false,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 360, top: 300),
+          const Padding(
+            padding: EdgeInsets.only(left: 360, top: 300),
             child: Icon(Icons.chat_outlined),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 350, top: 160),
+          const Padding(
+            padding: EdgeInsets.only(left: 350, top: 160),
             child: Center(child: Icon(Icons.info_outline)),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 260, top: 340),
+          const Padding(
+            padding: EdgeInsets.only(left: 260, top: 340),
             child: Text(
               'الاعدادات',
               style: TextStyle(
                 fontFamily: 'Tajawal',
                 fontSize: 20,
-                color: const Color(0xff000000),
+                color: Color(0xff000000),
                 fontWeight: FontWeight.w500,
               ),
               softWrap: false,
             ),
-          ),          Padding(
-            padding: const EdgeInsets.only(left: 360, top: 340),
+          ),
+          const Padding(
+            padding: EdgeInsets.only(left: 360, top: 340),
             child: Icon(Icons.settings),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 190, top: 260),
             child: Center(
               child: GestureDetector(
-                child: Text(
+                child: const Text(
                   'تسجيل الخروج',
                   style: TextStyle(
                     fontFamily: 'Tajawal',
                     fontSize: 20,
-                    color: const Color(0xff000000),
+                    color: Color(0xff000000),
                     fontWeight: FontWeight.w500,
                   ),
                   softWrap: false,
@@ -193,11 +194,11 @@ class _ProfileState extends State<Profile> {
               ),
             ),
           ),
-          Center(
+          const Center(
               child: Padding(
-            padding: const EdgeInsets.only(left: 350, top: 255),
+            padding: EdgeInsets.only(left: 350, top: 255),
             child: Icon(Icons.exit_to_app),
-          ))
+          ),),
         ],
       ),
     );
