@@ -61,7 +61,7 @@ class HomeFirstTap extends StatelessWidget {
           Row(
             children: [
               Text(
-                "محمد أبو صفية",
+                "يوسف ابو محمد",
                 style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w700),
               ),
             ],

@@ -19,7 +19,7 @@ class HousesTap extends StatelessWidget {
 
         );
       },
-      itemCount: 10,
+      itemCount: 1,
     );
   }
 }
