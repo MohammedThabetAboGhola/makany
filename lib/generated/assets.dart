@@ -19,6 +19,7 @@ class Assets {
 
   static const String victorAppLunchScreenImage1 = 'assets/images/victor/app_lunch_screen_image1.svg';
 
+  static const String hart = 'assets/images/pixel/red-heart-icon.png';
   static const String victorBathroomIcon = 'assets/images/victor/bathroom_icon.svg';
   static const String victorBedIcon = 'assets/images/victor/bed_icon.svg';
   static const String victorFilterIcon = 'assets/images/victor/filter_icon.svg';

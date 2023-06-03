@@ -105,6 +105,11 @@ class _BookingState extends State<Booking> with TickerProviderStateMixin {
                       style: TextStyle(fontSize: 13),
                     ),
                   ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 350, top: 90),
+                    child: Image.asset(Assets.hart,
+                        width: 20, height: 20 ),
+                  )
                 ],
               ),
             ),
@@ -175,21 +180,9 @@ class _BookingState extends State<Booking> with TickerProviderStateMixin {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(right: 300, top: 50),
-                    child: GestureDetector(
-                      onTap: (){
-                        if(Likes==false) {
-                          Likes==true;
-                          _controller.forward();
-                        }else{
-                          Likes==false;
-                          _controller.reverse();
-
-                        }
-                      },
-                      child: Lottie.asset(Assets.like,
-                          width: 100, height: 100,controller: _controller ),
-                    ),
+                    padding: const EdgeInsets.only(right: 350, top: 90),
+                    child: Image.asset(Assets.hart,
+                        width: 20, height: 20 ),
                   )
                 ],
               ),
